@@ -11,7 +11,7 @@ void HL(float totalSales[12], char Month[11][10])
 {
 	char d;
 	float e;
-	printf("\nSales Report (Highest to Lowest)\n Month \t Sales \n\n");
+	printf("\nSales Report (H to L)\n Month \t Sales \n\n");
 	for (int a = 0; a < 12; a++)
 	{
 		for (int b = a; b < 12; b++)
@@ -36,7 +36,7 @@ void HL(float totalSales[12], char Month[11][10])
 void sixmonthavg(float totalSales[12], char Month[11][10])
 {
 	float sixMonthTotal, average;
-	printf("\nSix-Month Moving Average Report:\n\n");
+	printf("\nSix-Month Moving Avg Report:\n\n");
 	for (int a = 0; a < 7; a++)
 	{
 		sixMonthTotal = 0.0;
@@ -51,7 +51,7 @@ void sixmonthavg(float totalSales[12], char Month[11][10])
 
 void sales(float totalSales[12], char Month[11][10])
 {
-	printf("Monthly sales report for 2022: \n\nMonth\t\t Sales\n\n");
+	printf("Monthly sales report: \n\nMonth\t\t Sales\n\n");
 	for (int a = 0; a < 12; a++)
 	{
 		printf("%s\t\t", Month[a]);
@@ -94,12 +94,12 @@ int main()
 	float totalSales[12];
 	if (inputP1 == NULL)
 	{
-		printf("Error reading File\n");
+		printf("error analyzing file\n");
 		exit(0);
 	}
 	else if (months == NULL)
 	{
-		printf("Error reading File\n");
+		printf("error analyzing file\n");
 		exit(0);
 	}
 	for (int a = 0; a < 12; a++){
