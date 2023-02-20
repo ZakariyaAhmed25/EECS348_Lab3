@@ -12,7 +12,6 @@ void HL(float totalSales[12], char Month[11][10])
 	char d;
 	float e;
 	printf("\nSales Report (Highest to Lowest)\n Month \t Sales \n\n");
-
 	for (int a = 0; a < 12; a++)
 	{
 		for (int b = a; b < 12; b++)
@@ -25,14 +24,11 @@ void HL(float totalSales[12], char Month[11][10])
 					Month[a][c] = Month[b][c];
 					Month[b][c] = d;
 				}
-
 				e = totalSales[a];
 				totalSales[a] = totalSales[b];
 				totalSales[b] = e;
 			}
-
 		}
-
 		printf("%-11s$%.2f\n", Month[a], totalSales[a]);
 	}
 }
@@ -41,7 +37,6 @@ void sixmonthavg(float totalSales[12], char Month[11][10])
 {
 	float sixMonthTotal, average;
 	printf("\nSix-Month Moving Average Report:\n\n");
-
 	for (int a = 0; a < 7; a++)
 	{
 		sixMonthTotal = 0.0;
@@ -64,12 +59,10 @@ void maxmin(float totalSales[12], char Month[11][10])
 		{
 			min = totalSales[a];
 		}
-
 		if (totalSales[a] > max)
 		{
 			max = totalSales[a];
 		}
-
 		total += totalSales[a];
 	}
 	printf("\nSales summary:\n");
@@ -84,7 +77,6 @@ void maxmin(float totalSales[12], char Month[11][10])
 void sales(float totalSales[12], char Month[11][10])
 {
 	printf("Monthly sales report for 2022: \n\nMonth\t\t Sales\n\n");
-
 	for (int a = 0; a < 12; a++)
 	{
 		printf("%s\t\t", Month[a]);
@@ -94,16 +86,13 @@ void sales(float totalSales[12], char Month[11][10])
 
 int main()
 {
-	FILE *input;
+	FILE *inputP1;
 	FILE *months;
-
-	input = fopen("inputP1.txt", "r");
+	inputP1 = fopen("inputP1.txt", "r");
 	months = fopen("months.txt", "r");
-
 	char Month[11][10];
 	float totalSales[12];
-
-	if (input == NULL)
+	if (inputP1 == NULL)
 	{
 		printf("Error reading File\n");
 		exit(0);
@@ -113,20 +102,17 @@ int main()
 		printf("Error reading File\n");
 		exit(0);
 	}
-
 	for (int a = 0; a < 12; a++){
-		fscanf(input, "%f", &totalSales[a]);
+		fscanf(inputP1, "%f", &totalSales[a]);
 		fscanf(months, "%s", Month[a]);
 	}
-
 
 sales(totalSales, Month);
 maxmin(totalSales, Month);
 sixmonthavg(totalSales, Month);
 HL(totalSales, Month);
 
-
-	fclose(input);
+	fclose(inputP1);
 	fclose(months);
 	return 0;
 }
