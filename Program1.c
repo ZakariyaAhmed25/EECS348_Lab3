@@ -49,6 +49,16 @@ void sixmonthavg(float totalSales[12], char Month[11][10])
 	}
 }
 
+void sales(float totalSales[12], char Month[11][10])
+{
+	printf("Monthly sales report for 2022: \n\nMonth\t\t Sales\n\n");
+	for (int a = 0; a < 12; a++)
+	{
+		printf("%s\t\t", Month[a]);
+		printf("$%5.2f\n", totalSales[a]);
+	}
+}
+
 void maxmin(float totalSales[12], char Month[11][10])
 {
 	float min = totalSales[0], max = totalSales[0], total;
@@ -72,16 +82,6 @@ void maxmin(float totalSales[12], char Month[11][10])
 	printf("(%s)\n", Month[11]);
 	float average = total/12.0;
 	printf("Average sales: $ %5.2f\n", average);
-}
-
-void sales(float totalSales[12], char Month[11][10])
-{
-	printf("Monthly sales report for 2022: \n\nMonth\t\t Sales\n\n");
-	for (int a = 0; a < 12; a++)
-	{
-		printf("%s\t\t", Month[a]);
-		printf("$%5.2f\n", totalSales[a]);
-	}
 }
 
 int main()
